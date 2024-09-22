@@ -3,9 +3,9 @@ LinkHub is a pet project that allows users to create their own personal link pag
 ## Features
 
 - User registration and authentication (JWT)
-- Create and edit personal link pages
+- Create and edit personal link page
 - Track page visits and link clicks using clickhouse
-- Public user pages accessible via username-based URLs
+- Public user page accessible via username-based URLs
 - REST API for managing users, links, and statistics
 - Follows Clean Architecture, DDD, CQRS, and TDD principles
 
