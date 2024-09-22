@@ -1,0 +1,63 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: linkhub-pet-proj
+            description: This is an awesome app!
+            version: 1.0.0
+        components:
+            securitySchemes:
+                bearerAuth:
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+        paths:
+            /api/auth/token:
+                post:
+                    summary: Get JWT token
+                    description: Authenticates the user and returns a JWT token based on the provided credentials.
+                    tags:
+                        - User
+                    requestBody:
+                        description: User credentials
+                        required: true
+                        content:
+                            application/json:
+                                schema:
+                                    type: object
+                                    required:
+                                        - username
+                                        - password
+                                    properties:
+                                        username:
+                                            type: string
+                                            example: user123
+                                        password:
+                                            type: string
+                                            example: password123
+                    responses:
+                        '200':
+                            description: JWT token
+                            content:
+                                application/json:
+                                    schema:
+                                        type: object
+                                        properties:
+                                            token:
+                                                type: string
+                                                example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+                        '401':
+                            description: Invalid credentials
+                            content:
+                                application/json:
+                                    schema:
+                                        type: object
+                                        properties:
+                                            message:
+                                                type: string
+                                                example: Invalid credentials.
+                                            code:
+                                                type: integer
+                                                example: 401
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/api(?!/doc$) # Accepts routes under /api except /api/doc

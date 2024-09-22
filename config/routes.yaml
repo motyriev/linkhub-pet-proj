@@ -1,0 +1,11 @@
+controllers:
+    resource: '../src/Api/Controller/'
+    type: attribute
+
+kernel:
+    resource: '../src/Shared/Infrastructure/Kernel.php'
+    type: attribute
+
+api_login_check:
+    path: /api/auth/token
+
